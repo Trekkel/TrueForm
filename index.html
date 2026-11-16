@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrueForm — Be true to you</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="announcement">
+    BE TRUE TO YOU — TWOJA FORMA, TWOJE ZASADY
+  </div>
+
+  <header class="header">
+    <a class="logo" href="#">trueform<span>.</span></a>
+
+    <nav>
+      <a href="#collections">Kolekcje</a>
+      <a href="#shop">Sklep</a>
+      <a href="#about">Nasza idea</a>
+    </nav>
+
+    <button class="cart-button" id="cartToggle">
+      Koszyk <span id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">CLOTHES WITHOUT LIMITS</p>
+
+        <h1>
+          Nie musisz<br>
+          pasować. <em>Po prostu</em><br>
+          bądź sobą.
+        </h1>
+
+        <p class="hero-text">
+          Ubrania, które dają Ci przestrzeń do wyrażania siebie.
+          Wybierz styl, który czujesz.
+        </p>
+
+        <a class="primary-button" href="#collections">
+          ODKRYJ KOLEKCJE <span>↗</span>
+        </a>
+      </div>
+
+      <div class="hero-art">
+        <div class="art-circle circle-pink"></div>
+        <div class="art-circle circle-blue"></div>
+
+        <div class="art-label label-top">
+          YOUR STYLE<br>YOUR RULES
+        </div>
+
+        <div class="art-label label-bottom">
+          TRUEFORM® / 2026
+        </div>
+
+        <div class="art-center">
+          BE<br><span>YOU.</span>
+        </div>
+      </div>
+
+      <div class="hero-index">01 — 03</div>
+    </section>
+
+    <section class="collections section-wrap" id="collections">
+
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">FIND YOUR FORM</p>
+          <h2>Wybierz <em>kolekcję.</em></h2>
+        </div>
+
+        <p>
+          Dwa kierunki. Nieskończenie wiele sposobów,
+          by wyrazić siebie.
+        </p>
+      </div>
+
+      <div class="collection-grid">
+
+        <button class="collection-card girls-card" data-gender="girls">
+          <span class="collection-number">COLLECTION / 01</span>
+
+          <span class="collection-big">
+            FOR<br>HER<span>.</span>
+          </span>
+
+          <span class="collection-bottom">
+            KOLEKCJA DZIEWCZĘCA <b>↗</b>
+          </span>
+        </button>
+
+        <button class="collection-card boys-card" data-gender="boys">
+          <span class="collection-number">COLLECTION / 02</span>
+
+          <span class="collection-big">
+            FOR<br>HIM<span>.</span>
+          </span>
+
+          <span class="collection-bottom">
+            KOLEKCJA CHŁOPIĘCA <b>↗</b>
+          </span>
+        </button>
+
+      </div>
+
+      <p class="collection-note">
+        To tylko propozycje stylu — wybieraj i łącz ubrania tak, jak chcesz.
+      </p>
+
+    </section>
+
+    <section class="shop-section" id="shop">
+      <div class="section-wrap">
+
+        <div class="section-heading shop-heading">
+          <div>
+            <p class="eyebrow">THE TRUEFORM EDIT</p>
+            <h2>Wybierz coś <em>swojego.</em></h2>
+          </div>
+
+          <div class="shop-tools">
+            <span id="activeCollection">CAŁY SKLEP</span>
+            <button class="reset-button" id="showAll">
+              Pokaż wszystko ↗
+            </button>
+          </div>
+        </div>
+
+        <div class="shop-controls">
+
+          <div class="filters">
+            <button class="filter active" data-filter="all">Wszystko</button>
+            <button class="filter" data-filter="tops">Koszulki</button>
+            <button class="filter" data-filter="hoodies">Bluzy</button>
+            <button class="filter" data-filter="accessories">Dodatki</button>
+          </div>
+
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Szukaj produktu..."
+          >
+
+        </div>
+
+        <div class="product-grid" id="productGrid"></div>
+
+      </div>
+    </section>
+
+    <section class="manifesto section-wrap" id="about">
+
+      <p class="eyebrow">A LITTLE REMINDER</p>
+
+      <h2>
+        Nie ma jednej<br>
+        definicji <em>Ciebie.</em>
+      </h2>
+
+      <p>
+        Twoja tożsamość. Twój komfort. Twój styl.
+        TrueForm powstało po to, by przypominać,
+        że nie musisz mieścić się w żadnych ramach.
+      </p>
+
+      <span class="manifesto-sign">
+        BE TRUE TO YOU<span>.</span>
+      </span>
+
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <a class="logo" href="#">trueform<span>.</span></a>
+    <p>Wear what feels like you.</p>
+    <span>© 2026 TRUEFORM — CONCEPT STORE</span>
+  </footer>
+
+  <div class="cart-overlay" id="cartOverlay">
+
+    <aside class="cart-panel">
+
+      <div class="cart-header">
+        <h2>Twój koszyk</h2>
+        <button id="closeCart">✕</button>
+      </div>
+
+      <div id="cartItems" class="cart-items">
+        <p class="empty-cart">Twój koszyk jest pusty.</p>
+      </div>
+
+      <div class="cart-footer">
+        <div>
+          <span>Suma</span>
+          <strong id="cartTotal">0,00 zł</strong>
+        </div>
+
+        <button class="primary-button checkout" id="checkout">
+          PRZEJDŹ DALEJ ↗
+        </button>
+
+        <small>
+          Demo — zamówienia nie są jeszcze obsługiwane.
+        </small>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
