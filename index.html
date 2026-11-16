@@ -1,225 +1,225 @@
 
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TrueForm — Be true to you</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrueForm | Be true to you</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="announcement">
-    BE TRUE TO YOU — TWOJA FORMA, TWOJE ZASADY
-  </div>
-
-  <header class="header">
-    <a class="logo" href="#">trueform<span>.</span></a>
-
-    <nav>
-      <a href="#collections">Kolekcje</a>
-      <a href="#shop">Sklep</a>
-      <a href="#about">Nasza idea</a>
-    </nav>
-
-    <button class="cart-button" id="cartToggle">
-      Koszyk <span id="cartCount">0</span>
+<header class="header">
+    <a href="#" class="logo">True<span>Form</span></a>
+    <button class="cart-button" id="cartButton">
+        Cart <span id="cartCount">0</span>
     </button>
-  </header>
+</header>
 
-  <main>
+<div class="announcement">BE TRUE TO YOU. &nbsp; BE YOURSELF.</div>
+
+<main>
 
     <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow">CLOTHES WITHOUT LIMITS</p>
-
-        <h1>
-          Nie musisz<br>
-          pasować. <em>Po prostu</em><br>
-          bądź sobą.
-        </h1>
-
-        <p class="hero-text">
-          Ubrania, które dają Ci przestrzeń do wyrażania siebie.
-          Wybierz styl, który czujesz.
-        </p>
-
-        <a class="primary-button" href="#collections">
-          ODKRYJ KOLEKCJE <span>↗</span>
-        </a>
-      </div>
-
-      <div class="hero-art">
-        <div class="art-circle circle-pink"></div>
-        <div class="art-circle circle-blue"></div>
-
-        <div class="art-label label-top">
-          YOUR STYLE<br>YOUR RULES
+        <div class="hero-content">
+            <p class="small-heading">WELCOME TO TRUEFORM</p>
+            <h1>You don't have to fit in.<br>Just be yourself.</h1>
+            <p class="hero-description">
+                Your style. Your identity. Your form.
+                Discover clothing that lets you express yourself.
+            </p>
+            <a href="#shop" class="main-button">EXPLORE PRODUCTS</a>
         </div>
 
-        <div class="art-label label-bottom">
-          TRUEFORM® / 2026
+        <div class="hero-decoration">
+            <span>YOUR</span>
+            <strong>TRUE<br>FORM.</strong>
         </div>
-
-        <div class="art-center">
-          BE<br><span>YOU.</span>
-        </div>
-      </div>
-
-      <div class="hero-index">01 — 03</div>
     </section>
 
-    <section class="collections section-wrap" id="collections">
+    <section class="shop" id="shop">
 
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">FIND YOUR FORM</p>
-          <h2>Wybierz <em>kolekcję.</em></h2>
-        </div>
-
-        <p>
-          Dwa kierunki. Nieskończenie wiele sposobów,
-          by wyrazić siebie.
-        </p>
-      </div>
-
-      <div class="collection-grid">
-
-        <button class="collection-card girls-card" data-gender="girls">
-          <span class="collection-number">COLLECTION / 01</span>
-
-          <span class="collection-big">
-            FOR<br>HER<span>.</span>
-          </span>
-
-          <span class="collection-bottom">
-            KOLEKCJA DZIEWCZĘCA <b>↗</b>
-          </span>
-        </button>
-
-        <button class="collection-card boys-card" data-gender="boys">
-          <span class="collection-number">COLLECTION / 02</span>
-
-          <span class="collection-big">
-            FOR<br>HIM<span>.</span>
-          </span>
-
-          <span class="collection-bottom">
-            KOLEKCJA CHŁOPIĘCA <b>↗</b>
-          </span>
-        </button>
-
-      </div>
-
-      <p class="collection-note">
-        To tylko propozycje stylu — wybieraj i łącz ubrania tak, jak chcesz.
-      </p>
-
-    </section>
-
-    <section class="shop-section" id="shop">
-      <div class="section-wrap">
-
-        <div class="section-heading shop-heading">
-          <div>
-            <p class="eyebrow">THE TRUEFORM EDIT</p>
-            <h2>Wybierz coś <em>swojego.</em></h2>
-          </div>
-
-          <div class="shop-tools">
-            <span id="activeCollection">CAŁY SKLEP</span>
-            <button class="reset-button" id="showAll">
-              Pokaż wszystko ↗
-            </button>
-          </div>
+        <div class="section-heading">
+            <p>FIND YOUR STYLE</p>
+            <h2>Our Products</h2>
         </div>
 
         <div class="shop-controls">
+            <div class="categories">
+                <button class="category active" data-category="all">All</button>
+                <button class="category" data-category="koszulki">T-Shirts</button>
+                <button class="category" data-category="bluzy">Hoodies</button>
+                <button class="category" data-category="dodatki">Accessories</button>
+                <button class="category" data-category="gadzety">Merch</button>
+            </div>
 
-          <div class="filters">
-            <button class="filter active" data-filter="all">Wszystko</button>
-            <button class="filter" data-filter="tops">Koszulki</button>
-            <button class="filter" data-filter="hoodies">Bluzy</button>
-            <button class="filter" data-filter="accessories">Dodatki</button>
-          </div>
+            <input id="searchInput" type="search" placeholder="Search products...">
+        </div>
 
-          <input
-            id="searchInput"
-            type="search"
-            placeholder="Szukaj produktu..."
-          >
+        <div class="products" id="products">
+
+            <!-- T-SHIRTS -->
+
+            <article class="product" data-category="koszulki" data-name="Classic Tee" data-price="59.99" data-description="A classic TrueForm T-shirt. Minimalist design and a comfortable fit for everyday wear." data-color="pink" data-sizes="XS,S,M,L,XL">
+                <div class="product-image pink"><span>TRUEFORM</span><div class="shirt"></div></div>
+                <div class="product-info"><div><h3>Classic Tee</h3><p>T-Shirt</p></div><strong>$59.99</strong></div>
+                <button class="add-button">VIEW PRODUCT</button>
+            </article>
+
+            <article class="product" data-category="koszulki" data-name="Oversized Tee" data-price="69.99" data-description="A relaxed oversized T-shirt for everyone who loves a comfortable style." data-color="blue" data-sizes="XS,S,M,L,XL">
+                <div class="product-image blue"><span>OVERSIZED</span><div class="shirt"></div></div>
+                <div class="product-info"><div><h3>Oversized Tee</h3><p>T-Shirt</p></div><strong>$69.99</strong></div>
+                <button class="add-button">VIEW PRODUCT</button>
+            </article>
+
+            <article class="product" data-category="koszulki" data-name="Be Yourself Tee" data-price="64.99" data-description="A T-shirt featuring the Be Yourself message. Express yourself your own way." data-color="lavender" data-sizes="XS,S,M,L,XL">
+                <div class="product-image lavender"><span>BE YOURSELF</span><div class="shirt"></div></div>
+                <div class="product-info"><div><h3>Be Yourself Tee</h3><p>T-Shirt</p></div><strong>$64.99</strong></div>
+                <button class="add-button">VIEW PRODUCT</button>
+            </article>
+
+            <!-- HOODIES -->
+
+            <article class="product" data-category="bluzy" data-name="Essential Hoodie" data-price="129.99" data-description="A classic hoodie. Versatile, comfortable and perfect for everyday wear." data-color="blue" data-sizes="XS,S,M,L,XL">
+                <div class="product-image blue"><span>ESSENTIAL</span><div class="hoodie"></div></div>
+                <div class="product-info"><div><h3>Essential Hoodie</h3><p>Hoodie</p></div><strong>$129.99</strong></div>
+                <button class="add-button">VIEW PRODUCT</button>
+            </article>
+
+            <article class="product" data-category="bluzy" data-name="TrueForm Hoodie" data-price="139.99" data-description="A TrueForm hoodie featuring our minimalist logo." data-color="pink" data-sizes="XS,S,M,L,XL">
+                <div class="product-image pink"><span>TRUEFORM</span><div class="hoodie"></div></div>
+                <div class="product-info"><div><h3>TrueForm Hoodie</h3><p>Hoodie</p></div><strong>$139.99</strong></div>
+                <button class="add-button">VIEW PRODUCT</button>
+            </article>
+
+            <article class="product" data-category="bluzy" data-name="Oversized Sweatshirt" data-price="119.99" data-description="A simple crewneck sweatshirt with a relaxed oversized fit." data-color="lavender" data-sizes="XS,S,M,L,XL">
+                <div class="product-image lavender"><span>OVERSIZED</span><div class="hoodie"></div></div>
+                <div class="product-info"><div><h3>Oversized Sweatshirt</h3><p>Sweatshirt</p></div><strong>$119.99</strong></div>
+                <button class="add-button">VIEW PRODUCT</button>
+            </article>
+
+            <!-- ACCESSORIES -->
+
+            <article class="product" data-category="dodatki" data-name="Tote Bag" data-price="39.99" data-description="A TrueForm tote bag for your everyday essentials." data-color="lavender">
+                <div class="product-image lavender"><span>YOUR STYLE</span><div class="bag">TF</div></div>
+                <div class="product-info"><div><h3>Tote Bag</h3><p>Bag</p></div><strong>$39.99</strong></div>
+                <button class="add-button">VIEW PRODUCT</button>
+            </article>
+
+            <article class="product" data-category="dodatki" data-name="TrueForm Cap" data-price="44.99" data-description="A baseball cap featuring a minimalist TrueForm design." data-color="pink">
+                <div class="product-image pink"><span>TRUEFORM</span><div class="cap">TF</div></div>
+                <div class="product-info"><div><h3>TrueForm Cap</h3><p>Cap</p></div><strong>$44.99</strong></div>
+                <button class="add-button">VIEW PRODUCT</button>
+            </article>
+
+            <article class="product" data-category="dodatki" data-name="Classic Socks" data-price="24.99" data-description="Classic socks featuring a subtle TrueForm design." data-color="blue">
+                <div class="product-image blue"><span>EVERYDAY</span><div class="socks">TF</div></div>
+                <div class="product-info"><div><h3>Classic Socks</h3><p>Socks</p></div><strong>$24.99</strong></div>
+                <button class="add-button">VIEW PRODUCT</button>
+            </article>
+
+            <!-- MERCH -->
+
+            <article class="product" data-category="gadzety" data-name="Sticker Pack" data-price="14.99" data-description="A set of TrueForm stickers. Add your style to everyday items." data-color="yellow">
+                <div class="product-image yellow"><span>EXPRESS YOURSELF</span><div class="stickers">TF ✦</div></div>
+                <div class="product-info"><div><h3>Sticker Pack</h3><p>Merch</p></div><strong>$14.99</strong></div>
+                <button class="add-button">VIEW PRODUCT</button>
+            </article>
+
+            <article class="product" data-category="gadzety" data-name="Keychain" data-price="19.99" data-description="A TrueForm keychain. A small accessory you can take anywhere." data-color="yellow">
+                <div class="product-image yellow"><span>YOUR IDENTITY</span><div class="keychain">TF</div></div>
+                <div class="product-info"><div><h3>Keychain</h3><p>Accessory</p></div><strong>$19.99</strong></div>
+                <button class="add-button">VIEW PRODUCT</button>
+            </article>
+
+            <article class="product" data-category="gadzety" data-name="TrueForm Mug" data-price="34.99" data-description="A TrueForm mug for your favourite coffee or tea." data-color="pink">
+                <div class="product-image pink"><span>YOUR MOMENT</span><div class="mug">TF</div></div>
+                <div class="product-info"><div><h3>TrueForm Mug</h3><p>Mug</p></div><strong>$34.99</strong></div>
+                <button class="add-button">VIEW PRODUCT</button>
+            </article>
 
         </div>
 
-        <div class="product-grid" id="productGrid"></div>
-
-      </div>
+        <p class="no-products" id="noProducts" hidden>No products found.</p>
     </section>
 
-    <section class="manifesto section-wrap" id="about">
-
-      <p class="eyebrow">A LITTLE REMINDER</p>
-
-      <h2>
-        Nie ma jednej<br>
-        definicji <em>Ciebie.</em>
-      </h2>
-
-      <p>
-        Twoja tożsamość. Twój komfort. Twój styl.
-        TrueForm powstało po to, by przypominać,
-        że nie musisz mieścić się w żadnych ramach.
-      </p>
-
-      <span class="manifesto-sign">
-        BE TRUE TO YOU<span>.</span>
-      </span>
-
+    <section class="about">
+        <p>OUR PHILOSOPHY</p>
+        <h2>You're not here<br>to meet other people's expectations.</h2>
+        <span>You're here to be yourself.</span>
     </section>
 
-  </main>
+    <section class="coming-soon">
+        <p>THE FUTURE OF TRUEFORM</p>
+        <h2>COMING SOON<span>...</span></h2>
+        <p>This is just the beginning. More coming soon.</p>
+    </section>
 
-  <footer class="footer">
-    <a class="logo" href="#">trueform<span>.</span></a>
-    <p>Wear what feels like you.</p>
-    <span>© 2026 TRUEFORM — CONCEPT STORE</span>
-  </footer>
+</main>
 
-  <div class="cart-overlay" id="cartOverlay">
-
-    <aside class="cart-panel">
-
-      <div class="cart-header">
-        <h2>Twój koszyk</h2>
-        <button id="closeCart">✕</button>
-      </div>
-
-      <div id="cartItems" class="cart-items">
-        <p class="empty-cart">Twój koszyk jest pusty.</p>
-      </div>
-
-      <div class="cart-footer">
-        <div>
-          <span>Suma</span>
-          <strong id="cartTotal">0,00 zł</strong>
+<footer class="footer">
+    <div class="footer-top">
+        <a href="#" class="logo">True<span>Form</span></a>
+        <div class="footer-contact">
+            <h3>Contact</h3>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
         </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 TrueForm. All rights reserved.</p>
+        <p>BE TRUE TO YOU.</p>
+    </div>
+</footer>
 
-        <button class="primary-button checkout" id="checkout">
-          PRZEJDŹ DALEJ ↗
-        </button>
+<!-- PRODUCT MODAL -->
 
-        <small>
-          Demo — zamówienia nie są jeszcze obsługiwane.
-        </small>
-      </div>
+<div class="product-modal" id="productModal">
+    <div class="product-modal-content">
+        <button class="modal-close" id="modalClose">✕</button>
+        <div class="modal-image product-image" id="modalImage">
+            <span>TRUEFORM</span>
+            <div id="modalArtwork"></div>
+        </div>
+        <div class="modal-details">
+            <p class="modal-label">TRUEFORM COLLECTION</p>
+            <h2 id="modalTitle"></h2>
+            <strong class="modal-price" id="modalPrice"></strong>
+            <p class="modal-description" id="modalDescription"></p>
+            <div id="sizeContainer" class="size-container">
+                <label for="modalSize">Select size:</label>
+                <select id="modalSize">
+                    <option value="">Choose a size</option>
+                </select>
+            </div>
+            <button id="modalAddButton" class="checkout-button">ADD TO CART</button>
+        </div>
+    </div>
+</div>
 
-    </aside>
+<!-- CART -->
 
-  </div>
+<div class="cart-overlay" id="cartOverlay">
+    <div class="cart-panel">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button id="closeCart" class="close-cart">✕</button>
+        </div>
+        <div id="cartItems" class="cart-items">
+            <p class="empty-cart">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <strong id="cartTotal">$0.00</strong>
+            </div>
+            <button class="checkout-button" id="checkoutButton">CONTINUE</button>
+            <p class="cart-note">Demo store – online payments are not available yet.</p>
+        </div>
+    </div>
+</div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
