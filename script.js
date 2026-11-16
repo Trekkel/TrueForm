@@ -1,278 +1,263 @@
 
-const products = [
-  {
-    id: 1,
-    name: "Everyday Tee",
-    price: 69,
-    category: "tops",
-    gender: "girls",
-    color: "pink",
-    tag: "BESTSELLER"
-  },
-  {
-    id: 2,
-    name: "Soft Form Hoodie",
-    price: 149,
-    category: "hoodies",
-    gender: "boys",
-    color: "blue",
-    tag: "NEW"
-  },
-  {
-    id: 3,
-    name: "Be Yourself Tee",
-    price: 79,
-    category: "tops",
-    gender: "girls",
-    color: "sand",
-    tag: "TRUEFORM PICK"
-  },
-  {
-    id: 4,
-    name: "Everyday Tote",
-    price: 39,
-    category: "accessories",
-    gender: "girls",
-    color: "pink",
-    tag: ""
-  },
-  {
-    id: 5,
-    name: "No Labels Hoodie",
-    price: 159,
-    category: "hoodies",
-    gender: "boys",
-    color: "sand",
-    tag: "LIMITED"
-  },
-  {
-    id: 6,
-    name: "True Colors Tee",
-    price: 75,
-    category: "tops",
-    gender: "boys",
-    color: "blue",
-    tag: "NEW"
-  }
-];
-
-let activeFilter = "all";
-let activeGender = "all";
-let cart = [];
-
-const grid = document.getElementById("productGrid");
+const categoryButtons = document.querySelectorAll(".category");
+const products = document.querySelectorAll(".product");
 const searchInput = document.getElementById("searchInput");
+const noProducts = document.getElementById("noProducts");
 
-function renderProducts() {
-  const query = searchInput.value.toLowerCase().trim();
+let selectedCategory = "all";
+let cart = [];
+let selectedProduct = null;
 
-  const filtered = products.filter(product => {
-    const matchesCategory =
-      activeFilter === "all" ||
-      product.category === activeFilter;
+// PRODUCT FILTERING
 
-    const matchesGender =
-      activeGender === "all" ||
-      product.gender === activeGender;
+function filterProducts() {
+    const searchText = searchInput.value.toLowerCase();
+    let visibleCount = 0;
 
-    const matchesSearch =
-      product.name.toLowerCase().includes(query);
+    products.forEach(product => {
+        const matchesCategory =
+            selectedCategory === "all" ||
+            product.dataset.category === selectedCategory;
 
-    return matchesCategory && matchesGender && matchesSearch;
-  });
+        const matchesSearch =
+            product.dataset.name.toLowerCase().includes(searchText);
 
-  grid.innerHTML = filtered.length
-    ? filtered.map(product => `
-      <article class="product-card">
+        product.style.display =
+            matchesCategory && matchesSearch ? "" : "none";
 
-        <div class="product-visual ${product.color}">
-          ${product.tag
-            ? `<span class="product-tag">${product.tag}</span>`
-            : ""}
-
-          <div class="product-shape">TRUEFORM</div>
-        </div>
-
-        <div class="product-info">
-          <strong>${product.name}</strong>
-          <span>${product.price},00 zł</span>
-        </div>
-
-        <div class="product-meta">
-          <span>
-            ${product.category === "tops"
-              ? "Koszulka"
-              : product.category === "hoodies"
-              ? "Bluza"
-              : "Dodatek"}
-          </span>
-
-          <button
-            class="add-button"
-            onclick="addToCart(${product.id})">
-            DODAJ +
-          </button>
-        </div>
-
-      </article>
-    `).join("")
-    : `<p class="no-results">
-        Nie znaleziono produktów. Spróbuj zmienić wyszukiwanie.
-      </p>`;
-}
-
-function addToCart(id) {
-  const product = products.find(item => item.id === id);
-
-  const existing = cart.find(item => item.id === id);
-
-  if (existing) {
-    existing.quantity++;
-  } else {
-    cart.push({
-      ...product,
-      quantity: 1
-    });
-  }
-
-  renderCart();
-}
-
-function removeFromCart(id) {
-  cart = cart.filter(item => item.id !== id);
-  renderCart();
-}
-
-function renderCart() {
-  document.getElementById("cartCount").textContent =
-    cart.reduce((sum, item) => sum + item.quantity, 0);
-
-  const total = cart.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
-
-  document.getElementById("cartTotal").textContent =
-    total.toFixed(2).replace(".", ",") + " zł";
-
-  const items = document.getElementById("cartItems");
-
-  items.innerHTML = cart.length
-    ? cart.map(item => `
-      <div class="cart-row">
-
-        <div>
-          <strong>${item.name}</strong>
-          <br>
-          <small>${item.quantity} × ${item.price},00 zł</small>
-        </div>
-
-        <button onclick="removeFromCart(${item.id})">
-          Usuń
-        </button>
-
-      </div>
-    `).join("")
-    : `<p class="empty-cart">Twój koszyk jest pusty.</p>`;
-}
-
-// FILTROWANIE PRODUKTÓW
-
-document.querySelectorAll(".filter").forEach(button => {
-  button.addEventListener("click", () => {
-
-    activeFilter = button.dataset.filter;
-
-    document.querySelectorAll(".filter").forEach(item => {
-      item.classList.toggle("active", item === button);
+        if (matchesCategory && matchesSearch) visibleCount++;
     });
 
-    renderProducts();
-  });
+    noProducts.hidden = visibleCount !== 0;
+}
+
+categoryButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        categoryButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        selectedCategory = button.dataset.category;
+        filterProducts();
+    });
 });
 
-// WYBÓR KOLEKCJI
+searchInput.addEventListener("input", filterProducts);
 
-document.querySelectorAll(".collection-card").forEach(card => {
-  card.addEventListener("click", () => {
 
-    activeGender = card.dataset.gender;
-    activeFilter = "all";
-    searchInput.value = "";
+// PRODUCT PREVIEW
 
-    document.querySelectorAll(".filter").forEach(button => {
-      button.classList.toggle(
-        "active",
-        button.dataset.filter === "all"
-      );
+const productModal = document.getElementById("productModal");
+const modalClose = document.getElementById("modalClose");
+const modalImage = document.getElementById("modalImage");
+const modalArtwork = document.getElementById("modalArtwork");
+const modalTitle = document.getElementById("modalTitle");
+const modalPrice = document.getElementById("modalPrice");
+const modalDescription = document.getElementById("modalDescription");
+const modalSize = document.getElementById("modalSize");
+const sizeContainer = document.getElementById("sizeContainer");
+const modalAddButton = document.getElementById("modalAddButton");
+
+function openProduct(product) {
+    selectedProduct = product;
+
+    const image = product.querySelector(".product-image");
+
+    modalImage.className = "modal-image product-image";
+
+    image.classList.forEach(className => {
+        if (className !== "product-image") {
+            modalImage.classList.add(className);
+        }
     });
 
-    document.getElementById("activeCollection").textContent =
-      activeGender === "girls"
-        ? "KOLEKCJA DZIEWCZĘCA"
-        : "KOLEKCJA CHŁOPIĘCA";
+    modalArtwork.innerHTML = "";
 
-    document.getElementById("shop").scrollIntoView({
-      behavior: "smooth"
-    });
-
-    renderProducts();
-  });
-});
-
-// POKAŻ WSZYSTKIE PRODUKTY
-
-document.getElementById("showAll").addEventListener("click", () => {
-
-  activeGender = "all";
-  activeFilter = "all";
-  searchInput.value = "";
-
-  document.getElementById("activeCollection").textContent =
-    "CAŁY SKLEP";
-
-  document.querySelectorAll(".filter").forEach(button => {
-    button.classList.toggle(
-      "active",
-      button.dataset.filter === "all"
+    const artwork = image.querySelector(
+        ".shirt, .hoodie, .bag, .stickers, .cap, .keychain, .socks, .mug"
     );
-  });
 
-  renderProducts();
+    if (artwork) {
+        modalArtwork.appendChild(artwork.cloneNode(true));
+    }
+
+    modalTitle.textContent = product.dataset.name;
+
+    modalPrice.textContent =
+        "$" + Number(product.dataset.price).toFixed(2);
+
+    modalDescription.textContent = product.dataset.description;
+
+    const sizes = product.dataset.sizes;
+
+    sizeContainer.hidden = !sizes;
+    modalSize.innerHTML = '<option value="">Choose a size</option>';
+
+    if (sizes) {
+        sizes.split(",").forEach(size => {
+            const option = document.createElement("option");
+            option.value = size;
+            option.textContent = size;
+            modalSize.appendChild(option);
+        });
+    }
+
+    productModal.classList.add("open");
+    document.body.style.overflow = "hidden";
+}
+
+products.forEach(product => {
+    product.addEventListener("click", () => openProduct(product));
 });
 
-// WYSZUKIWARKA
+function closeProduct() {
+    productModal.classList.remove("open");
+    document.body.style.overflow = "";
+    selectedProduct = null;
+}
 
-searchInput.addEventListener("input", renderProducts);
+modalClose.addEventListener("click", closeProduct);
 
-// KOSZYK
-
-const overlay = document.getElementById("cartOverlay");
-
-document.getElementById("cartToggle").addEventListener("click", () => {
-  overlay.classList.add("open");
+productModal.addEventListener("click", event => {
+    if (event.target === productModal) closeProduct();
 });
 
-document.getElementById("closeCart").addEventListener("click", () => {
-  overlay.classList.remove("open");
+
+// SHOPPING CART
+
+const cartButton = document.getElementById("cartButton");
+const cartOverlay = document.getElementById("cartOverlay");
+const closeCart = document.getElementById("closeCart");
+const cartItems = document.getElementById("cartItems");
+const cartCount = document.getElementById("cartCount");
+const cartTotal = document.getElementById("cartTotal");
+const checkoutButton = document.getElementById("checkoutButton");
+
+cartButton.addEventListener("click", () => {
+    cartOverlay.classList.add("open");
 });
 
-overlay.addEventListener("click", event => {
-  if (event.target === overlay) {
-    overlay.classList.remove("open");
-  }
+closeCart.addEventListener("click", () => {
+    cartOverlay.classList.remove("open");
 });
 
-// PRZYCISK ZAMÓWIENIA
-
-document.getElementById("checkout").addEventListener("click", () => {
-  alert(
-    "To wersja demonstracyjna sklepu. Płatności i zamówienia nie są jeszcze skonfigurowane."
-  );
+cartOverlay.addEventListener("click", event => {
+    if (event.target === cartOverlay) {
+        cartOverlay.classList.remove("open");
+    }
 });
 
-// START
 
-renderProducts();
-renderCart();
+// ADD TO CART
 
+modalAddButton.addEventListener("click", () => {
+    if (!selectedProduct) return;
+
+    const sizes = selectedProduct.dataset.sizes;
+    const size = sizes ? modalSize.value : "";
+
+    if (sizes && !size) {
+        alert("Please select a product size!");
+        return;
+    }
+
+    const name = selectedProduct.dataset.name;
+    const price = Number(selectedProduct.dataset.price);
+
+    const existingProduct = cart.find(item =>
+        item.name === name && item.size === size
+    );
+
+    if (existingProduct) {
+        existingProduct.quantity++;
+    } else {
+        cart.push({
+            name,
+            price,
+            size,
+            quantity: 1
+        });
+    }
+
+    updateCart();
+    closeProduct();
+    cartOverlay.classList.add("open");
+});
+
+
+// UPDATE CART
+
+function updateCart() {
+    cartItems.innerHTML = "";
+
+    if (cart.length === 0) {
+        cartItems.innerHTML =
+            '<p class="empty-cart">Your cart is empty.</p>';
+    }
+
+    let total = 0;
+    let count = 0;
+
+    cart.forEach((item, index) => {
+        total += item.price * item.quantity;
+        count += item.quantity;
+
+        const cartItem = document.createElement("div");
+        cartItem.className = "cart-item";
+
+        const info = document.createElement("span");
+
+        info.textContent =
+            item.name +
+            (item.size ? " | Size: " + item.size : "") +
+            " × " + item.quantity;
+
+        const right = document.createElement("div");
+
+        const price = document.createElement("strong");
+
+        price.textContent =
+            "$" + (item.price * item.quantity).toFixed(2);
+
+        const remove = document.createElement("button");
+        remove.className = "remove-item";
+        remove.textContent = "Remove";
+
+        remove.addEventListener("click", () => {
+            cart.splice(index, 1);
+            updateCart();
+        });
+
+        right.append(price, document.createElement("br"), remove);
+        cartItem.append(info, right);
+        cartItems.appendChild(cartItem);
+    });
+
+    cartCount.textContent = count;
+
+    cartTotal.textContent = "$" + total.toFixed(2);
+}
+
+
+// CHECKOUT
+
+checkoutButton.addEventListener("click", () => {
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    alert(
+        "Thank you for your interest in TrueForm! " +
+        "The ordering and payment system is not available yet."
+    );
+});
+
+
+// ESCAPE KEY CLOSES WINDOWS
+
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        closeProduct();
+        cartOverlay.classList.remove("open");
+    }
+});
