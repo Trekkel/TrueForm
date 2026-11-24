@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,169 +9,156 @@
 </head>
 <body>
 
-    <div class="sticky-top">
-        <header class="main-header">
-            <a href="#" class="logo" data-page="home">The Blooming Cheese</a>
+<div class="sticky-top">
+    <header class="main-header">
+        <button class="menu-toggle" id="menuToggle">☰</button>
 
-            <button id="cartButton" class="cart-button" aria-label="Otwórz koszyk">
-                🛒 <span id="cartCount">0</span>
-            </button>
-        </header>
+        <a href="#" class="logo" id="homeLogo">
+            <img src="images/logo.png" alt="The Blooming Cheese">
+        </a>
 
-        <div class="announcement">
-            BE TRUE TO YOU
-        </div>
+        <button class="cart-button" id="cartButton">
+            🛒 <span id="cartCount">0</span>
+        </button>
+    </header>
+
+    <div class="announcement">
+        BE TRUE TO YOU
     </div>
+</div>
 
-    <main class="main-layout">
+<div class="menu-backdrop" id="menuBackdrop"></div>
 
-        <aside class="sidebar">
-            <nav>
-                <a href="#" class="category active" data-page="home">Home</a>
-                <a href="#" class="category" data-page="transmasc">Transmasc</a>
-                <a href="#" class="category" data-page="transfem">Transfem</a>
-                <a href="#" class="category" data-page="accessories">Accessories</a>
-                <a href="#" class="category" data-page="stickers">Stickers</a>
-            </nav>
-        </aside>
+<nav class="side-menu" id="sideMenu">
+    <button class="close-menu" id="closeMenu">×</button>
+    <h2>MENU</h2>
+    <a href="#" data-page="home">Home</a>
+    <a href="#" data-page="transmasc">Transmasc</a>
+    <a href="#" data-page="transfem">Transfem</a>
+    <a href="#" data-page="accessories">Accessories</a>
+    <a href="#" data-page="stickers">Stickers</a>
+</nav>
 
-        <div class="content">
+<main>
+    <section id="homePage">
+        <section class="hero">
+            <div>
+                <p class="hero-small">THE BLOOMING CHEESE</p>
+                <h1>Be yourself.<br>Wear your truth.</h1>
+                <p>Clothes and accessories made for expressing yourself.</p>
+                <button class="primary-button" data-page="home">SHOP NOW</button>
+            </div>
+        </section>
+    </section>
 
-            <section class="hero" id="hero">
-                <div class="hero-content">
-                    <p class="hero-small">BE YOURSELF. ALWAYS.</p>
-                    <h1>Be true to who you are.</h1>
-                    <p>Express yourself. Wear your identity.</p>
-                    <button class="shop-button" id="shopNow">Explore collection</button>
-                </div>
-            </section>
-
-            <section class="shop-section" id="shopSection">
-                <div class="shop-heading">
-                    <div>
-                        <h2 id="pageTitle">Our Collection</h2>
-                        <p id="pageDescription">Find something that feels like you.</p>
-                    </div>
-
-                    <input
-                        type="text"
-                        id="searchInput"
-                        placeholder="Search products..."
-                    >
-                </div>
-
-                <div class="products-grid" id="products"></div>
-
-                <p id="noProducts" class="no-products" hidden>
-                    No products found.
-                </p>
-            </section>
-
-            <!-- GALLERY -->
-            <section class="gallery-section" id="gallerySection">
-                <h2>Our Gallery</h2>
-                <p class="gallery-subtitle">A little inspiration from our world.</p>
-
-                <div class="gallery-container">
-                    <button class="gallery-arrow" id="galleryPrev" aria-label="Previous image">❮</button>
-
-                    <div class="gallery-image">
-                        <img
-                            id="galleryImage"
-                            src="images/gallery1.jpg"
-                            alt="The Blooming Cheese gallery"
-                        >
-                    </div>
-
-                    <button class="gallery-arrow" id="galleryNext" aria-label="Next image">❯</button>
-                </div>
-
-                <div class="gallery-dots">
-                    <span class="gallery-dot active"></span>
-                    <span class="gallery-dot"></span>
-                    <span class="gallery-dot"></span>
-                </div>
-            </section>
-
-        </div>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-brand">
-            <h2>The Blooming Cheese</h2>
-            <p>Be true to you.</p>
+    <section id="shopSection">
+        <div class="section-heading">
+            <p>OUR COLLECTION</p>
+            <h2 id="pageTitle">All Products</h2>
+            <span id="pageDescription">Find something that feels like you.</span>
         </div>
 
-        <div class="footer-column">
-            <h3>SHOP</h3>
-            <a href="#" data-page="home">Home</a>
-            <a href="#" data-page="transmasc">Transmasc</a>
-            <a href="#" data-page="transfem">Transfem</a>
-            <a href="#" data-page="accessories">Accessories</a>
-            <a href="#" data-page="stickers">Stickers</a>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search products...">
         </div>
 
-        <div class="footer-column">
-            <h3>INFORMATION</h3>
-            <a href="#" data-page="about">About Us</a>
-            <a href="#" data-page="contact">Contact</a>
-            <a href="#" data-page="privacy">Privacy Policy</a>
-            <a href="#" data-page="terms">Terms & Conditions</a>
+        <div class="products" id="products"></div>
+        <p id="noProducts">No products found.</p>
+    </section>
+
+    <section id="gallerySection">
+        <div class="section-heading">
+            <p>OUR WORLD</p>
+            <h2>Gallery</h2>
         </div>
 
-        <div class="footer-bottom">
-            © 2026 The Blooming Cheese. All rights reserved.
+        <div class="gallery">
+            <button id="galleryPrev">‹</button>
+            <img id="galleryImage" src="images/gallery1.jpg" alt="Gallery">
+            <button id="galleryNext">›</button>
         </div>
-    </footer>
 
-    <!-- PRODUCT MODAL -->
-    <div class="modal-overlay" id="productModal">
-        <div class="product-modal">
-            <button class="modal-close" id="modalClose">×</button>
-            <div class="modal-artwork" id="modalArtwork"></div>
+        <div id="galleryDots" class="gallery-dots"></div>
+    </section>
 
-            <div class="modal-details">
-                <h2 id="modalTitle"></h2>
-                <p class="modal-price" id="modalPrice"></p>
-                <p id="modalDescription"></p>
+    <section id="productPage" class="hidden">
+        <button id="backToProducts" class="back-button">← Back to products</button>
 
-                <div id="sizeContainer">
-                    <label for="modalSize">Choose size:</label>
-                    <select id="modalSize">
+        <div class="product-details">
+            <div class="detail-artwork" id="detailArtwork"></div>
+
+            <div class="detail-info">
+                <p>THE BLOOMING CHEESE</p>
+                <h1 id="detailTitle"></h1>
+                <h2 id="detailPrice"></h2>
+                <p id="detailDescription"></p>
+
+                <div id="detailSizeWrap">
+                    <label for="detailSize">Choose size:</label>
+                    <select id="detailSize">
                         <option value="">Select size</option>
-                        <option value="XS">XS</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
+                        <option>XS</option>
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                        <option>XL</option>
                     </select>
                 </div>
 
-                <button id="modalAddButton" class="shop-button">
-                    Add to cart
+                <button id="detailAddButton" class="primary-button">
+                    ADD TO CART
                 </button>
             </div>
         </div>
+    </section>
+
+    <section id="infoPage" class="hidden">
+        <button id="backFromInfo" class="back-button">← Back</button>
+        <div class="info-content">
+            <h1 id="infoTitle"></h1>
+            <p id="infoText"></p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-logo">
+        <img src="images/logo.png" alt="The Blooming Cheese">
+        <p>Be true to you.</p>
     </div>
 
-    <!-- CART -->
-    <div class="cart-overlay" id="cartOverlay">
-        <div class="cart-panel">
-            <button id="closeCart" class="modal-close">×</button>
+    <div class="footer-links">
+        <h3>INFORMATION</h3>
+        <a href="#" data-info="about">About Us</a>
+        <a href="#" data-info="contact">Contact</a>
+        <a href="#" data-info="privacy">Privacy Policy</a>
+        <a href="#" data-info="terms">Terms & Conditions</a>
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 The Blooming Cheese. All rights reserved.
+    </div>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay">
+    <div class="cart-panel">
+        <div class="cart-header">
             <h2>Your Cart</h2>
+            <button id="closeCart">×</button>
+        </div>
 
-            <div id="cartItems"></div>
+        <div id="cartItems"></div>
 
-            <div class="cart-summary">
-                <h3>Total: <span id="cartTotal">0.00 zł</span></h3>
-                <button id="checkoutButton" class="shop-button">
-                    Checkout
-                </button>
-            </div>
+        <div class="cart-footer">
+            <h3>Total: <span id="cartTotal">0.00 zł</span></h3>
+            <button id="checkoutButton" class="primary-button">
+                CHECKOUT
+            </button>
+            <p class="cart-note">Demo store — payments are not connected yet.</p>
         </div>
     </div>
+</div>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
