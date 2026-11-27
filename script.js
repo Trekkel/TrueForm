@@ -9,7 +9,7 @@ const products = [
     {id: 7, name: "Tote Bag", price: 39.99, category: "accessories", description: "A practical tote bag for your everyday essentials."},
     {id: 8, name: "Blooming Cap", price: 44.99, category: "accessories", description: "A cap to complete your outfit."},
     {id: 9, name: "Classic Socks", price: 24.99, category: "accessories", description: "Comfortable everyday socks."},
-    {id: 10, name: "Sticker Pack", price: 14.99, category: "stickers", description: "A pack of stickers to decorate your belongings."},
+    {id: 10, name: "Sticker Pack", price: 14.99, category: "accessories", description: "A pack of stickers to decorate your belongings."},
     {id: 11, name: "Keychain", price: 19.99, category: "accessories", description: "A small accessory for your keys or bag."},
     {id: 12, name: "Blooming Mug", price: 34.99, category: "accessories", description: "A mug for your favourite drinks."}
 ];
@@ -34,11 +34,6 @@ const pageDetails = {
         title: "Accessories",
         description: "Small details, big expression.",
         category: "accessories"
-    },
-    stickers: {
-        title: "Stickers",
-        description: "Add a little personality.",
-        category: "stickers"
     }
 };
 
